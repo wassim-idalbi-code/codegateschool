@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodeGate School</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-inner">
+
+      <!-- Logo -->
+      <a href="#" class="logo" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
+        <img src="assets/wide logo svg dark simple.png" alt="CodeGate School">
+      </a>
+
+      <!-- Nav Menu -->
+      <nav class="nav-menu">
+        <a href="#students">طلابنا</a>
+        <a href="#why">لماذا مدرستنا؟</a>
+        <a href="#journey" class="nav-journey-desktop">الصفوف الدراسية</a>
+        <a href="#journey-mobile" class="nav-journey-mobile">الصفوف الدراسية</a>
+        <a href="#pricing">الأسعار</a>
+        <a href="#faq">الأسئلة الشائعة</a>
+      </nav>
+
+      <!-- CTA Button -->
+      <a href="https://wa.me/963938827525" target="_blank" class="cta-btn">أحجز حصة مجانا!</a>
+
+      <!-- Burger Menu (mobile only) -->
+      <button class="burger" aria-label="فتح القائمة" aria-expanded="false" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>
+
+    </div>
+
+    <!-- Mobile Nav Overlay -->
+    <nav class="mobile-nav" id="mobileNav">
+      <a href="#students" onclick="closeMenu()">طلابنا</a>
+      <a href="#why" onclick="closeMenu()">لماذا مدرستنا؟</a>
+      <a href="#journey-mobile" onclick="closeMenu()">الصفوف الدراسية</a>
+      <a href="#pricing" onclick="closeMenu()">الأسعار</a>
+      <a href="#faq" onclick="closeMenu()">الأسئلة الشائعة</a>
+    </nav>
+  </header>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('mobileNav');
+      const burger = document.querySelector('.burger');
+      const isOpen = nav.classList.toggle('open');
+      burger.classList.toggle('open', isOpen);
+      burger.setAttribute('aria-expanded', isOpen);
+    }
+    function closeMenu() {
+      document.getElementById('mobileNav').classList.remove('open');
+      const burger = document.querySelector('.burger');
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+    }
+  </script>
+
+  <!-- HERO -->
+  <section class="hero section-base">
+    <div class="hero-inner">
+
+      <!-- Heading -->
+      <h1 class="hero-heading">
+        نجهز جيل اليوم لوظائف الغد من خلال تعليم
+        <span class="highlight">البرمجة والذكاء الاصطناعي</span>
+      </h1>
+
+      <!-- Text Content -->
+      <div class="hero-text">
+        <!-- Decorative (left) -->
+        <div class="hero-decor-left">
+          <img src="assets/hero-decor-1.png" alt="" class="decor-img">
+        </div>
+
+        <div class="hero-bullets">
+          <div class="bullet">
+            <img class="check-icon" src="assets/tick.svg" alt="check">
+            <p>
+              فصول <span class="purple">برمجة مباشرة عبر الانترنت</span> للأطفال واليافعين من عمر 6 حتى 17 سنة
+            </p>
+          </div>
+          <div class="bullet">
+            <img class="check-icon" src="assets/tick.svg" alt="check">
+            <p>
+              أفضل مدرسين البرمجة متاحين لتدريس <span class="purple">المنهج التعليمي العالمي المعتمد من STEM</span>
+            </p>
+          </div>
+          <div class="bullet">
+            <img class="check-icon" src="assets/tick.svg" alt="check">
+            <p>
+              <span class="purple">تطبيق عملي ومشاريع</span> تخرج مربوطة بسوق العمل
+            </p>
+          </div>
+        </div>
+
+        <div class="hero-cta-wrap">
+          <a href="https://wa.me/963938827525" target="_blank" class="hero-cta">احجز حصة تجريبية مجانية الآن</a>
+        </div>
+      </div>
+
+      <!-- Image -->
+      <div class="hero-image">
+        <img src="assets/hero-kids-robotics.png" alt="Kids learning robotics and coding">
+      </div>
+
+      <!-- Decorative elements -->
+      <div class="hero-decor-right">
+        <img src="assets/hero-decor-2.png" alt="" class="decor-img">
+      </div>
+    </div>
+  </section>
+
+  <!-- TECHNOLOGIES -->
+  <section class="technologies section-base" id="tech">
+    <div class="width-capper">
+      <div class="tech-card card-base">
+        <h2>أكثر من 67 أداة تطوير برمجي و تكنولوجيا احترافية في منهج واحد</h2>
+        <div class="tech-skills">
+          <div class="tech-skill">
+            <div class="tech-skill-icon">
+              <img src="assets/course-ai.png" alt="AI">
+            </div>
+            <p>الذكاء الاصطناعي وتعلم الآلة</p>
+          </div>
+          <div class="tech-skill">
+            <div class="tech-skill-icon">
+              <img src="assets/course-3d.png" alt="3D">
+            </div>
+            <p>برمجة ثلاثية الأبعاد (الواقع الافتراضي)</p>
+          </div>
+          <div class="tech-skill">
+            <div class="tech-skill-icon">
+              <img src="assets/course-games.png" alt="Games">
+            </div>
+            <p>تطوير الألعاب</p>
+          </div>
+          <div class="tech-skill">
+            <div class="tech-skill-icon">
+              <img src="assets/course-python.png" alt="Python">
+            </div>
+            <p>Python وعلوم البيانات</p>
+          </div>
+          <div class="tech-skill">
+            <div class="tech-skill-icon">
+              <img src="assets/course-web.png" alt="Web">
+            </div>
+            <p>تطوير الويب</p>
+          </div>
+          <div class="tech-skill">
+            <div class="tech-skill-icon">
+              <img src="assets/course-minecraft.png" alt="Minecraft">
+            </div>
+            <p>Minecraft</p>
+          </div>
+          <div class="tech-skill">
+            <div class="tech-skill-icon">
+              <img src="assets/course-mobile.png" alt="Mobile">
+            </div>
+            <p>تطوير التطبيقات</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Decorative elements -->
+      <div class="tech-decor-left">
+        <img src="assets/decor-3.png" alt="" class="decor-img">
+      </div>
+      <div class="tech-decor-right">
+        <img src="assets/decor-4.png" alt="" class="decor-img">
+      </div>
+    </div>
+  </section>
+
+  <!-- STUDENTS -->
+  <section class="students section-base" id="students">
+    <div class="width-capper">
+      <div class="students-card card-base">
+        <h2>تعرف على طلابنا - مفاتيح بوابات المستقبل</h2>
+        <div class="students-grid">
+          <div class="student-item">
+            <div class="student-photo">
+              <img src="assets/teacher-majeda.png" alt="ماجدة الكيالي">
+            </div>
+            <div class="student-info">
+              <p>ماجدة الكيالي</p>
+              <p>الصف الرابع - <strong>بوابة الناشئين</strong></p>
+            </div>
+          </div>
+          <div class="student-item">
+            <div class="student-photo">
+              <img src="assets/teacher-rania.png" alt="رانية الكسم">
+            </div>
+            <div class="student-info">
+              <p>رانية الكسم</p>
+              <p>الصف الثاني - <strong>بوابة البراعم الرقمية</strong></p>
+            </div>
+          </div>
+          <div class="student-item">
+            <div class="student-photo">
+              <img src="assets/teacher-mohammad.png" alt="محمد نجار">
+            </div>
+            <div class="student-info">
+              <p>محمد نجار</p>
+              <p>الصف الثاني - <strong>بوابة البراعم الرقمية</strong></p>
+            </div>
+          </div>
+          <div class="student-item">
+            <div class="student-photo">
+              <img src="assets/teacher-rabi.png" alt="ربيع حسان أفندي">
+            </div>
+            <div class="student-info">
+              <p>ربيع حسان أفندي</p>
+              <p>الصف السابع - <strong>بوابة الرواد الرقميين</strong></p>
+            </div>
+          </div>
+          <div class="student-item">
+            <div class="student-photo">
+              <img src="assets/teacher-salah.png" alt="صلاح البدوي">
+            </div>
+            <div class="student-info">
+              <p>صلاح البدوي</p>
+              <p>الصف الثالث - <strong>بوابة البراعم الرقمية</strong></p>
+            </div>
+          </div>
+          <div class="student-item">
+            <div class="student-photo">
+              <img src="assets/teacher-salwa.png" alt="سلوى حداد">
+            </div>
+            <div class="student-info">
+              <p>سلوى حداد</p>
+              <p>الصف الخامس - <strong>بوابة الناشئين</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      function setupInfiniteScroll(container) {
+        if (!container) return;
+        var items = Array.from(container.children);
+        // Clone items 2x for seamless looping
+        for (var c = 0; c < 2; c++) {
+          items.forEach(function (item) {
+            container.appendChild(item.cloneNode(true));
+          });
+        }
+
+        var gap = parseFloat(getComputedStyle(container).gap) || 0;
+        var originalWidth = 0;
+        items.forEach(function (item) {
+          originalWidth += item.offsetWidth + gap;
+        });
+
+        container.addEventListener('scroll', function () {
+          var sl = Math.abs(container.scrollLeft);
+          if (sl >= originalWidth * 2) {
+            container.scrollLeft = container.scrollLeft > 0
+              ? container.scrollLeft - originalWidth
+              : container.scrollLeft + originalWidth;
+          } else if (sl < 1) {
+            container.scrollLeft = container.scrollLeft > 0
+              ? container.scrollLeft + originalWidth
+              : container.scrollLeft - originalWidth;
+          }
+        });
+
+        // Start in the middle so user can scroll both directions
+        if (container.scrollLeft === 0) {
+          container.scrollLeft = document.documentElement.dir === 'rtl' ? -originalWidth : originalWidth;
+        }
+      }
+
+      var mq = window.matchMedia('(max-width: 768px)');
+      if (mq.matches) {
+        var techSkills = document.querySelector('.tech-skills');
+        var studentsGrid = document.querySelector('.students-grid');
+        setupInfiniteScroll(techSkills);
+        setupInfiniteScroll(studentsGrid);
+      }
+    })();
+  </script>
+
+  <!-- WHY CODEGATE -->
+  <section class="why-section section-base" id="why">
+    <h2>لماذا مدرسة بوابة البرمجة CodeGate School؟</h2>
+    <div class="width-capper why-inner">
+
+      <!-- Features side (FIRST in HTML = visual RIGHT in RTL) -->
+      <div class="why-features">
+        <div class="why-feature cyan" data-img="assets/why1.png">
+          <div class="why-feature-icon special">
+            <img src="assets/icon-calendar.svg" alt="calendar">
+          </div>
+          <div class="why-feature-text">
+            <span class="title">احجز حصة تجريبية مجانية الآن</span>
+            <span class="desc">ساعة ونصف اسبوعياً في المساء او عطلات نهاية الأسبوع.</span>
+          </div>
+        </div>
+        <div class="why-mobile-img open"><img src="assets/why1.png" alt=""></div>
+
+        <div class="why-feature" data-img="assets/why2.png">
+          <div class="why-feature-icon">
+            <img src="assets/SVG/why2.svg" alt="why 2">
+          </div>
+          <div class="why-feature-text">
+            <span class="title">مجموعات صغيرة وتفاعلية</span>
+            <span class="desc">صف صغير من الطلاب ذوي التفكير المتقارب. الحد الأقصى 6 طلاب.</span>
+          </div>
+        </div>
+        <div class="why-mobile-img"><img src="assets/why2.png" alt=""></div>
+
+        <div class="why-feature" data-img="assets/why-stem.png">
+          <div class="why-feature-icon">
+            <img src="assets/SVG/why3.svg" alt="why 3">
+          </div>
+          <div class="why-feature-text">
+            <span class="title">منهج STEM الدولي</span>
+            <span class="desc">نعتمد معايير تعليمية عالمية تدمج العلوم والتكنولوجيا والهندسة والرياضيات.</span>
+          </div>
+        </div>
+        <div class="why-mobile-img"><img src="assets/why-stem.png" alt=""></div>
+
+        <div class="why-feature" data-img="assets/why4.png">
+          <div class="why-feature-icon">
+            <img src="assets/SVG/why4.svg" alt="why 4">
+          </div>
+          <div class="why-feature-text">
+            <span class="title">متابعة دورية للأهل</span>
+            <span class="desc">ستحصل على تقارير دورية شاملة توضح مستوى تقدم ولدك ومهاراته المكتسبة.</span>
+          </div>
+        </div>
+        <div class="why-mobile-img"><img src="assets/why4.png" alt=""></div>
+
+        <div class="why-feature" data-img="assets/why-projects.png">
+          <div class="why-feature-icon">
+            <img src="assets/SVG/why5.svg" alt="why 5">
+          </div>
+          <div class="why-feature-text">
+            <span class="title">التعلم بالمشاريع</span>
+            <span class="desc">يركز طلابنا على التطبيق العملي وبناء مشاريع حقيقية بنهاية كل مرحلة.</span>
+          </div>
+        </div>
+        <div class="why-mobile-img"><img src="assets/why-projects.png" alt=""></div>
+      </div>
+
+      <!-- Image side (SECOND in HTML = visual LEFT in RTL) -->
+      <div class="why-image">
+        <img src="assets/why1.png" alt="Kids learning coding">
+        <p>ساعة ونصف اسبوعياً في المساء او عطلات نهاية الأسبوع.</p>
+      </div>
+
+    </div>
+
+    <p class="why-quote">"نحن لا نعلم الأكواد فحسب، بل نستثمر في عقول أبنائنا لمواكبة سوق العمل المستقبلي"</p>
+
+    <!-- Decorative elements — anchored to width capper -->
+    <div class="width-capper why-decor-wrapper">
+      <div class="why-decor-left">
+        <img src="assets/decor-5.png" alt="" class="decor-img">
+      </div>
+      <div class="why-decor-right">
+        <img src="assets/decor-6.png" alt="" class="decor-img">
+      </div>
+    </div>
+  </section>
+
+  <!-- JOURNEY DESKTOP -->
+  <section class="journey journey-desktop section-base" id="journey">
+    <div class="pricing-header">
+      <h2>بوابات المستقبل (الصفوف الدراسية)</h2>
+      <p>تقسم مدرسة بوابة البرمجة التعليم إلى <strong>أربع مراحل متتالية</strong>، تبدأ من الأساسيات مع الأطفال في
+        <strong>سن السادسة</strong> وتصل إلى التطوير الاحترافي مع الشباب في <strong>سن الثامنة عشرة</strong>. <strong>كل
+          مرحلة تمتد عشرة أشهر</strong> وتنقسم إلى <strong>ثلاثة فصول دراسية</strong>، مما يضمن تدرّجاً طبيعياً في
+        المحتوى دون قفزات مفاجئة.
+      </p>
+    </div>
+    <div class="width-capper">
+      <div class="journey-card">
+        <div class="journey-inner">
+
+
+          <!-- Tabs -->
+          <div class="journey-tabs">
+            <div class="journey-tab tab-base">
+              <span class="tab-name">بوابة البراعم<br>الرقمية</span>
+              <span class="tab-age">6–8 سنوات</span>
+            </div>
+            <div class="journey-tab tab-base active">
+              <span class="tab-name">بوابة<br>الناشئين</span>
+              <span class="tab-age">9–11 سنة</span>
+            </div>
+            <div class="journey-tab tab-base">
+              <span class="tab-name">بوابة الرواد<br>الرقميين</span>
+              <span class="tab-age">12–14 سنة</span>
+            </div>
+            <div class="journey-tab tab-base">
+              <span class="tab-name">بوابة<br>المطورين</span>
+              <span class="tab-age">15–17 سنة</span>
+            </div>
+          </div>
+
+          <!-- Course Cards Row -->
+          <div class="journey-courses">
+            <div class="journey-arrow">
+              <img src="assets/x.svg" alt="" style="width: 22px; height: 32px;">
+            </div>
+            <div class="journey-course">
+              <img src="assets/badge-minecraft.png" alt="Minecraft">
+              <div class="journey-course-label">
+                <p>التأسيس والتأهيل</p>
+              </div>
+            </div>
+            <div class="journey-course">
+              <img src="assets/badge-js-html5.png" alt="JS HTML5">
+              <div class="journey-course-label">
+                <p>الويب</p>
+              </div>
+            </div>
+            <div class="journey-course">
+              <img src="assets/badge-scratch.png" alt="Scratch">
+              <div class="journey-course-label">
+                <p>بايثون والمشروع الختامي</p>
+              </div>
+            </div>
+            <div class="journey-arrow">
+              <img src="assets/flag.svg" alt="" style="width: 16px; height: 16px;">
+            </div>
+          </div>
+
+          <!-- Timeline -->
+          <div class="journey-timeline">
+            <!-- Dashed line spanning full card width -->
+            <div class="journey-dashed-line"></div>
+
+            <div class="journey-timeline-arrow">
+              <img src="assets/x.svg" alt="" style="width: 18px; height: 18px;">
+            </div>
+            <div class="journey-milestone">
+              <div class="journey-milestone-dot"></div>
+              <div class="journey-milestone-info">
+                <span class="month">الفصل الأول<br>(4 أشهر)</span>
+                <span class="classes">16 درس</span>
+                <p class="milestone-desc">سواء قادمين من المستوى الأول أو منضمّين لأول مرة، الجميع يصل لنفس المستوى في سكراتش: متغيرات، منطق شرطي، استنساخ، وتصميم ألعاب. الفصل ينتهي بلعبة سكراتش بجودة العرض.</p>
+              </div>
+            </div>
+            <div class="journey-milestone">
+              <div class="journey-milestone-dot"></div>
+              <div class="journey-milestone-info">
+                <span class="month">الفصل الثاني<br>(3 أشهر)</span>
+                <span class="classes">12 درس</span>
+                <p class="milestone-desc">الانتقال من الأوامر المرئية إلى الكود الحقيقي. يبنون موقعاً شخصياً بـ HTML و CSS، يضيفون التفاعل بجافاسكريبت، ثم يصنعون لعبة على المتصفح يشاركون رابطها مع أصدقائهم.</p>
+              </div>
+            </div>
+            <div class="journey-milestone">
+              <div class="journey-milestone-dot"></div>
+              <div class="journey-milestone-info">
+                <span class="month">الفصل الثالث<br>(3 أشهر)</span>
+                <span class="classes">12 درس</span>
+                <p class="milestone-desc">أول تجربة مع البرمجة النصية. يتعلمون بايثون من الصفر، يبنون ألعاباً نصية، ثم يختارون مشروعاً ختامياً (ويب أو بايثون) يقدمونه أمام الأهل للحصول على شهادة المستوى الثالث.</p>
+              </div>
+            </div>
+            <div class="journey-timeline-arrow">
+              <img src="assets/flag.svg" alt="" style="width: 22px; height: 36px;">
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Decor -->
+        <div class="journey-decor">
+          <img src="assets/section-promo.png" alt="" class="decor-img">
+        </div>
+
+      </div>
+    </div>
+    <div class="pricing-header">
+      <p>نقدم نظاماً مرناً ومكثفاً عن بعد يضمن الاستمرارية والإتقان — لأن التعليم النوعي يجب أن يكون متاحاً للجميع. <strong>كل جلسة تمتد تسعين دقيقة، لا تتجاوز ستة طلاب</strong>، يتلقّون فيها إشرافاً مباشراً وتطبيق عملي فوري بعد تلقي المعلومات النظرية. وفي نهاية كل مرحلة، <strong>يعرض الطالب مشروعه الختامي أمام أهله</strong> — دليلاً ملموساً على ما بناه بيديه.</p>
+    </div>
+  </section>
+
+  <!-- JOURNEY MOBILE VERSION -->
+  <section class="journey journey-mobile section-base" id="journey-mobile">
+    <div class="pricing-header">
+      <h2>بوابات المستقبل (الصفوف الدراسية)</h2>
+      <p>تقسم مدرسة بوابة البرمجة التعليم إلى <strong>أربع مراحل متتالية</strong>، تبدأ من الأساسيات مع الأطفال في
+        <strong>سن السادسة</strong> وتصل إلى التطوير الاحترافي مع الشباب في <strong>سن الثامنة عشرة</strong>. <strong>كل
+          مرحلة تمتد عشرة أشهر</strong> وتنقسم إلى <strong>ثلاثة فصول دراسية</strong>، مما يضمن تدرّجاً طبيعياً في
+        المحتوى دون قفزات مفاجئة.
+      </p>
+    </div>
+
+    <!-- Scrollable tabs -->
+    <div class="jm-tabs-wrap">
+      <div class="jm-tabs">
+        <div class="jm-tab tab-base">
+          <span class="jm-tab-name">بوابة البراعم<br>الرقمية</span>
+          <span class="jm-tab-age">6–8 سنوات</span>
+        </div>
+          <div class="jm-tab tab-base active">
+            <span class="jm-tab-name">بوابة<br>الناشئين</span>
+            <span class="jm-tab-age">9–11 سنة</span>
+          </div>
+        <div class="jm-tab tab-base">
+          <span class="jm-tab-name">بوابة الرواد<br>الرقميين</span>
+          <span class="jm-tab-age">12–14 سنة</span>
+        </div>
+        <div class="jm-tab tab-base">
+          <span class="jm-tab-name">بوابة<br>المطورين</span>
+          <span class="jm-tab-age">15–17 سنة</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Timeline body -->
+    <div class="jm-body">
+      <!-- X at top of the line -->
+      <div class="jm-flag-row">
+        <div class="jm-x-spacer"></div>
+        <div class="jm-flag-col">
+          <img src="assets/x.svg" alt="" style="width: 18px; height: 18px;">
+        </div>
+        <div class="jm-card-spacer"></div>
+      </div>
+
+      <!-- Row: semester info LEFT | dot on line | course card RIGHT -->
+      <div class="jm-row">
+        <div class="jm-info">
+          <span class="jm-duration">الفصل الأول<br>(4 أشهر)</span>
+          <span class="jm-classes">16 درس</span>
+          <p class="jm-desc">سواء قادمين من المستوى الأول أو منضمّين لأول مرة، الجميع يصل لنفس المستوى في سكراتش: متغيرات، منطق شرطي، استنساخ، وتصميم ألعاب. الفصل ينتهي بلعبة سكراتش بجودة العرض.</p>
+        </div>
+        <div class="jm-dot-col">
+          <div class="jm-dot"></div>
+        </div>
+        <div class="jm-course">
+          <img src="assets/badge-minecraft.png" alt="Minecraft">
+          <div class="jm-course-label"><p>التأسيس والتأهيل</p></div>
+        </div>
+      </div>
+      <div class="jm-row">
+        <div class="jm-info">
+          <span class="jm-duration">الفصل الثاني<br>(3 أشهر)</span>
+          <span class="jm-classes">12 درس</span>
+          <p class="jm-desc">الانتقال من الأوامر المرئية إلى الكود الحقيقي. يبنون موقعاً شخصياً بـ HTML و CSS، يضيفون التفاعل بجافاسكريبت، ثم يصنعون لعبة على المتصفح يشاركون رابطها مع أصدقائهم.</p>
+        </div>
+        <div class="jm-dot-col">
+          <div class="jm-dot"></div>
+        </div>
+        <div class="jm-course">
+          <img src="assets/badge-js-html5.png" alt="JS HTML5">
+          <div class="jm-course-label"><p>الويب</p></div>
+        </div>
+      </div>
+      <div class="jm-row">
+        <div class="jm-info">
+          <span class="jm-duration">الفصل الثالث<br>(3 أشهر)</span>
+          <span class="jm-classes">12 درس</span>
+          <p class="jm-desc">أول تجربة مع البرمجة النصية. يتعلمون بايثون من الصفر، يبنون ألعاباً نصية، ثم يختارون مشروعاً ختامياً (ويب أو بايثون) يقدمونه أمام الأهل للحصول على شهادة المستوى الثالث.</p>
+        </div>
+        <div class="jm-dot-col">
+          <div class="jm-dot"></div>
+        </div>
+        <div class="jm-course">
+          <img src="assets/badge-scratch.png" alt="Scratch">
+          <div class="jm-course-label"><p>بايثون والمشروع الختامي</p></div>
+        </div>
+      </div>
+      <!-- Flag at bottom of the line -->
+      <div class="jm-flag-row">
+        <div class="jm-flag-spacer"></div>
+        <div class="jm-flag-col">
+          <img src="assets/flag.svg" alt="">
+        </div>
+        <div class="jm-card-spacer"></div>
+      </div>
+    </div>
+
+    <div class="pricing-header">
+      <p>نقدم نظاماً مرناً ومكثفاً عن بعد يضمن الاستمرارية والإتقان — لأن التعليم النوعي يجب أن يكون متاحاً للجميع. <strong>كل جلسة تمتد تسعين دقيقة، لا تتجاوز ستة طلاب</strong>، يتلقّون فيها إشرافاً مباشراً وتطبيق عملي فوري بعد تلقي المعلومات النظرية. وفي نهاية كل مرحلة، <strong>يعرض الطالب مشروعه الختامي أمام أهله</strong> — دليلاً ملموساً على ما بناه بيديه.</p>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      var features = document.querySelectorAll('.why-feature');
+      var mobileImgs = document.querySelectorAll('.why-mobile-img');
+      var whyImg = document.querySelector('.why-image img');
+      var whyDesc = document.querySelector('.why-image p');
+      var current = 0;
+      var timer = null;
+      var userInteracted = false;
+
+      // Preload all tab images
+      features.forEach(function (f) {
+        var img = new Image();
+        img.src = f.dataset.img;
+      });
+
+      function activate(index) {
+        features.forEach(function (f) { f.classList.remove('cyan'); });
+        mobileImgs.forEach(function (m) { m.classList.remove('open'); });
+        features[index].classList.add('cyan');
+        mobileImgs[index].classList.add('open');
+        var newSrc = features[index].dataset.img;
+        var newDesc = features[index].querySelector('.desc').textContent;
+        whyImg.style.opacity = '0';
+        setTimeout(function () {
+          whyImg.src = newSrc;
+          whyDesc.textContent = newDesc;
+          whyImg.style.opacity = '1';
+        }, 300);
+        current = index;
+      }
+
+      function next() {
+        activate((current + 1) % features.length);
+      }
+
+      function startCycle() {
+        stopCycle();
+        timer = setInterval(next, 3000);
+      }
+
+      function stopCycle() {
+        if (timer) { clearInterval(timer); timer = null; }
+      }
+
+      // Click stops auto-cycle
+      features.forEach(function (btn, i) {
+        btn.addEventListener('click', function () {
+          userInteracted = true;
+          stopCycle();
+          activate(i);
+        });
+      });
+
+      startCycle();
+    })();
+  </script>
+
+  <!-- PRICING -->
+  <section class="pricing section-base" id="pricing">
+    <div class="pricing-header">
+      <h2>الأسعار</h2>
+      <p>نؤمن أن التعليم النوعي يجب أن يكون متاحاً للجميع
+
+      </p>
+    </div>
+    <div class="pricing-cards">
+      <!-- Trial Plan -->
+      <div class="pricing-card secondary">
+        <div class="pricing-card-header">
+          <span class="pricing-badge">تجربة</span>
+          <h3>الحصة التجريبية</h3>
+          <p class="pricing-subtitle">أسبوع مجاني للتعرّف على تجربة التعلّم</p>
+        </div>
+        <div class="pricing-price">
+          <div class="pricing-amount">
+            <span class="currency">USD</span>
+            <span class="number">0</span>
+          </div>
+          <p class="pricing-note">حصة واحدة مجانية — بدون أي التزام</p>
+        </div>
+        <div class="pricing-features">
+          <div class="pricing-feature">
+            <span>حصة تفاعلية مباشرة — ساعة ونصف</span>
+            <img class="feature-icon" src="assets/icon-check.svg" alt="✓">
+          </div>
+          <div class="pricing-feature">
+            <span>6 طلاب على الأكثر في المجموعة</span>
+            <img class="feature-icon" src="assets/icon-check.svg" alt="✓">
+          </div>
+          <div class="pricing-feature">
+            <span>تقييم مبدئي لمستوى الطالب</span>
+            <img class="feature-icon" src="assets/icon-check.svg" alt="✓">
+          </div>
+          <div class="pricing-feature">
+            <span>دعم فني خلال التجربة</span>
+            <img class="feature-icon" src="assets/icon-check.svg" alt="✓">
+          </div>
+          <div class="pricing-feature disabled">
+            <span>خطة دراسية متكاملة</span>
+            <img class="feature-icon" src="assets/icon-dash.svg" alt="—">
+          </div>
+          <div class="pricing-feature disabled">
+            <span>تواصل مباشر مع ولي الأمر</span>
+            <img class="feature-icon" src="assets/icon-dash.svg" alt="—">
+          </div>
+        </div>
+        <a href="https://wa.me/963938827525" target="_blank" class="pricing-cta">ابدأ التجربة المجانية</a>
+      </div>
+      <!-- Featured Plan -->
+      <div class="pricing-card featured">
+        <div class="pricing-card-header">
+          <span class="pricing-badge">اشتراك شهري</span>
+          <h3>الخطة الدراسية</h3>
+          <p class="pricing-subtitle">3 فصول دراسية لكل بوابة — 10 أشهر من الانغماس</p>
+        </div>
+        <div class="pricing-price">
+          <div class="pricing-amount">
+            <span class="period">/ شهرياً</span>
+            <span class="currency">USD</span>
+            <span class="number">100</span>
+          </div>
+          <p class="pricing-note">4 حصص شهرياً — ≈ 6 دولارات للحصة الواحدة</p>
+        </div>
+        <div class="pricing-features">
+          <div class="pricing-feature">
+            <span>حصة تفاعلية مباشرة — ساعة ونصف</span>
+            <img class="feature-icon" src="assets/icon-check.svg" alt="✓">
+          </div>
+          <div class="pricing-feature">
+            <span>6 طلاب على الأكثر في المجموعة</span>
+            <img class="feature-icon" src="assets/icon-check.svg" alt="✓">
+          </div>
+          <div class="pricing-feature">
+            <span>4 حصص شهرياً لضمان الانغماس في المادة</span>
+            <img class="feature-icon" src="assets/icon-check.svg" alt="✓">
+          </div>
+          <div class="pricing-feature">
+            <span>الفصل الأول 4 أشهر — الثاني والثالث 3 أشهر لكل منهما</span>
+            <img class="feature-icon" src="assets/icon-check.svg" alt="✓">
+          </div>
+          <div class="pricing-feature">
+            <span>دعم فني مستمر</span>
+            <img class="feature-icon" src="assets/icon-check.svg" alt="✓">
+          </div>
+          <div class="pricing-feature">
+            <span>تواصل مباشر مع ولي الأمر</span>
+            <img class="feature-icon" src="assets/icon-check.svg" alt="✓">
+          </div>
+        </div>
+        <a href="https://wa.me/963938827525" target="_blank" class="pricing-cta">اشترك الآن</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CERTIFICATE / PORTFOLIO -->
+  <section class="certificate section-base" id="certificate">
+    <div class="certificate-inner">
+      <div class="certificate-text">
+        <h2>كل طالب يبني ملفاً مهنياً جاهزاً للمستقبل</h2>
+        <p class="cert-desc">مهاراتك، مشاريعك، وشهاداتك — كلها تظهر في ملفك الشخصي. عدّله متى شئت وشاركه بحرية مع
+          الجامعات والبرامج الصيفية، إنه ملكك!</p>
+        <p class="cert-note">مناهجنا تتبع معايير STEM العالمية لضمان جودة المحتوى التعليمي.</p>
+      </div>
+      <div class="certificate-image">
+        <img src="assets/certificate-image.png" alt="شهادة إتمام">
+      </div>
+      <div class="certificate-decor">
+        <img src="assets/decor-7.png" alt="" class="decor-img">
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq section-base" id="faq">
+    <div class="faq-card">
+      <div class="faq-header">
+        <h2>الأسئلة الشائعة</h2>
+        <p>كل ما تريد معرفته قبل أن يبدأ طفلك رحلته مع البرمجة</p>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item static">
+          <button class="faq-question">لماذا يُعد تعلم البرمجة أمراً حيوياً للأطفال؟</button>
+          <div class="faq-answer">إن استثمارك في تعليم البرمجة لطفلك ليس مجرد تعلم لغة تقنية، بل هو تمكين حقيقي يمنحه
+            أدوات التفكير النقدي، والمثابرة، والمنطق السليم؛ وهي مهارات لا غنى عنها في أي مجال يختاره مستقبلاً. فالبرمجة
+            اليوم هي المفتاح الذي يفتح أبواباً واسعة في مختلف القطاعات، من تطوير البرمجيات والطب والتمويل وصولاً إلى
+            الفنون والإبداع. والأهم من ذلك، أن البرمجة تبني في أطفالنا الثقة في التعامل مع التكنولوجيا، وتحولهم من مجرد
+            مستهلكين لها إلى مبتكرين، مما يؤهلهم بذكاء لمواجهة تحديات عالمنا الرقمي المتسارع.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question"><span>ما الفئة العمرية المناسبة للبدء؟</span><span class="faq-toggle"><span
+                class="faq-toggle-plus">+</span><span class="faq-toggle-minus">−</span></span></button>
+          <div class="faq-answer">نقدم برامج مصممة للأطفال من سن 6 سنوات وحتى 17 سنة، مع مناهج مخصصة لكل مرحلة عمرية
+            تراعي قدرات الطفل ومستوى نضجه.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question"><span>هل يحتاج طفلي لخبرة سابقة في البرمجة؟</span><span class="faq-toggle"><span
+                class="faq-toggle-plus">+</span><span class="faq-toggle-minus">−</span></span></button>
+          <div class="faq-answer">لا، نحن نبدأ مع الطفل من الصفر تماماً حسب بوابته العمرية.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question"><span>ما هي المتطلبات التقنية لحضور الدروس؟</span><span class="faq-toggle"><span
+                class="faq-toggle-plus">+</span><span class="faq-toggle-minus">−</span></span></button>
+          <div class="faq-answer">كل ما يحتاجه هو جهاز كمبيوتر (أو تابلت لبوابة البراعم) واتصال جيد بالإنترنت.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question"><span>كيف يمكنني معرفة مدى تطور ابني؟</span><span class="faq-toggle"><span
+                class="faq-toggle-plus">+</span><span class="faq-toggle-minus">−</span></span></button>
+          <div class="faq-answer">نرسل تقارير متابعة دورية للأهالي ونعقد جلسات لعرض مشاريع الطلاب العملية.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question"><span>هل الشهادة معتمدة؟</span><span class="faq-toggle"><span
+                class="faq-toggle-plus">+</span><span class="faq-toggle-minus">−</span></span></button>
+          <div class="faq-answer">نعم، مناهجنا تتبع معايير STEM العالمية لضمان جودة المحتوى التعليمي.</div>
+        </div>
+      </div>
+
+      <!-- Decor inside card -->
+      <div class="faq-decor-right">
+        <img src="assets/decor-8.png" alt="" class="decor-img">
+      </div>
+    </div>
+
+    <!-- Decor outside card — anchored to width capper -->
+    <div class="width-capper faq-decor-wrapper">
+      <div class="faq-decor-left">
+        <img src="assets/decor-9.png" alt="" class="decor-img">
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // FAQ Accordion
+    (function () {
+      var items = document.querySelectorAll('.faq-item:not(.static)');
+      items.forEach(function (item) {
+        item.querySelector('.faq-question').addEventListener('click', function () {
+          item.classList.toggle('open');
+        });
+      });
+    })();
+  </script>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h3>CodeGate School</h3>
+        <p>نجهّز جيل اليوم لوظائف الغد — من خلال مناهج برمجة تفاعلية مصممة للأطفال والناشئين من سن 6 إلى 17 عاماً.</p>
+      </div>
+      <div class="footer-col">
+        <h4>تواصل معنا</h4>
+        <div class="footer-links">
+          <a href="mailto:info@codegateschool.com" class="footer-link">
+            <img src="assets/faq-decor-1.svg" alt="" style="width: 14px; height: 14px;">
+            <span dir="ltr">info@codegateschool.com</span>
+          </a>
+          <a href="tel:+963938827525" class="footer-link">
+            <img src="assets/faq-decor-2.svg" alt="" style="width: 14px; height: 14px;">
+            <span dir="ltr">+963 938 827 525</span>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>تابعنا</h4>
+        <div class="footer-links">
+          <!-- <a href="#" class="footer-link">
+            <img src="assets/faq-decor-3.svg" alt="" style="width: 14px; height: 14px;">
+            انستغرام
+          </a> -->
+          <a href="https://www.facebook.com/profile.php?id=61576527012411" class="footer-link">
+            <img src="assets/faq-decor-4.svg" alt="" style="width: 9px; height: 15px;margin-left:5px;">
+            فيسبوك
+          </a>
+          <a href="https://wa.me/963938827525" target="_blank" class="footer-link">
+            <img src="assets/faq-decor-5.svg" alt="" style="width: 14px; height: 14px;">
+            واتساب
+          </a>
+        </div>
+      </div>
+    </div>
+    <p class="footer-quote">"استثمارك اليوم في تعليم أولادك البرمجة هو المفتاح لفتح أبواب المستقبل لهم"</p>
+    <p class="footer-copyright">© 2025 CodeGate School. جميع الحقوق محفوظة.</p>
+  </footer>
+
+</body>
+
+</html>
