@@ -1784,6 +1784,10 @@ body {
 
 /* ===== MOBILE HEADER RESPONSIVE ===== */
 @media (max-width: 768px) {
+    .decor-img {
+        display: none;
+    }
+
     .header {
         flex-wrap: wrap;
     }
