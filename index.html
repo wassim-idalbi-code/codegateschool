@@ -255,7 +255,6 @@
       function setupInfiniteScroll(container) {
         if (!container) return;
         var items = Array.from(container.children);
-        // Clone items 2x for seamless looping
         for (var c = 0; c < 2; c++) {
           items.forEach(function (item) {
             container.appendChild(item.cloneNode(true));
@@ -281,10 +280,70 @@
           }
         });
 
-        // Start in the middle so user can scroll both directions
         if (container.scrollLeft === 0) {
           container.scrollLeft = document.documentElement.dir === 'rtl' ? -originalWidth : originalWidth;
         }
+
+        setupAutoScroll(container);
+      }
+
+      function setupAutoScroll(container) {
+        var SPEED = 0.5; // px per frame
+        var PAUSE_MS = 5000;
+        var direction = -1; // -1 = RTL natural direction (scroll left in RTL)
+        var paused = false;
+        var visible = false;
+        var resumeTimer = null;
+        var raf = null;
+        var lastScrollLeft = container.scrollLeft;
+
+        function step() {
+          if (!paused && visible) {
+            container.scrollLeft += SPEED * direction;
+          }
+          raf = requestAnimationFrame(step);
+        }
+
+        if ('IntersectionObserver' in window) {
+          var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              visible = entry.isIntersecting;
+              if (visible) lastScrollLeft = container.scrollLeft;
+            });
+          }, { threshold: 0.2 });
+          io.observe(container);
+        } else {
+          visible = true;
+        }
+
+        function onUserScroll() {
+          // Detect if scroll changed from our animation (user-driven)
+          var delta = container.scrollLeft - lastScrollLeft;
+          // If delta differs from what we'd set, user scrolled
+          if (Math.abs(delta) > SPEED * 3) {
+            paused = true;
+            if (resumeTimer) clearTimeout(resumeTimer);
+            resumeTimer = setTimeout(function () {
+              // Resume in the direction the user was scrolling
+              if (delta !== 0) direction = delta < 0 ? -1 : 1;
+              paused = false;
+            }, PAUSE_MS);
+          }
+          lastScrollLeft = container.scrollLeft;
+        }
+
+        container.addEventListener('scroll', onUserScroll, { passive: true });
+        container.addEventListener('touchstart', function () {
+          paused = true;
+          if (resumeTimer) clearTimeout(resumeTimer);
+        }, { passive: true });
+        container.addEventListener('touchend', function () {
+          if (resumeTimer) clearTimeout(resumeTimer);
+          resumeTimer = setTimeout(function () { paused = false; }, PAUSE_MS);
+        }, { passive: true });
+
+        lastScrollLeft = container.scrollLeft;
+        raf = requestAnimationFrame(step);
       }
 
       var mq = window.matchMedia('(max-width: 768px)');

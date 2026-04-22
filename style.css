@@ -2083,4 +2083,8 @@ body {
     .section-base {
         padding: 16px 8px;
     }
+
+    .card-base {
+        padding: 16px 8px;
+    }
 }
