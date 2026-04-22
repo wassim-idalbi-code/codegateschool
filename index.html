@@ -774,12 +774,46 @@
       renderJourney(levelIdx);
     }
 
+    var userStopped = false;
+    var cycleTimer = null;
+    var currentLevel = 0;
+
     document.querySelectorAll('.journey-tab, .jm-tab').forEach(function (tab) {
       tab.style.cursor = 'pointer';
       tab.addEventListener('click', function () {
-        activateLevel(parseInt(tab.dataset.level));
+        userStopped = true;
+        if (cycleTimer) { clearInterval(cycleTimer); cycleTimer = null; }
+        currentLevel = parseInt(tab.dataset.level);
+        activateLevel(currentLevel);
       });
     });
+
+    function startCycle() {
+      if (userStopped || cycleTimer) return;
+      cycleTimer = setInterval(function () {
+        currentLevel = (currentLevel + 1) % LEVELS.length;
+        activateLevel(currentLevel);
+      }, 4000);
+    }
+    function stopCycle() {
+      if (cycleTimer) { clearInterval(cycleTimer); cycleTimer = null; }
+    }
+
+    if ('IntersectionObserver' in window) {
+      var sections = document.querySelectorAll('.journey-desktop, .journey-mobile');
+      var io = new IntersectionObserver(function (entries) {
+        var anyVisible = entries.some(function (e) { return e.isIntersecting; })
+          || Array.from(sections).some(function (s) {
+            var r = s.getBoundingClientRect();
+            return r.bottom > 0 && r.top < window.innerHeight;
+          });
+        if (anyVisible) startCycle();
+        else stopCycle();
+      }, { threshold: 0.2 });
+      sections.forEach(function (s) { io.observe(s); });
+    } else {
+      startCycle();
+    }
 
     // Init
     activateLevel(0);
