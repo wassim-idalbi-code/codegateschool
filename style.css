@@ -751,7 +751,7 @@ body {
 /* Journey Course Cards */
 .journey-courses {
     display: flex;
-    gap: 64px;
+    gap: 32px;
     align-items: center;
     justify-content: center;
     width: 100%;
@@ -771,8 +771,8 @@ body {
 }
 
 .journey-course {
-    width: 200px;
-    height: 240px;
+    width: 280px;
+    height: 180px;
     flex-shrink: 0;
     border-radius: 16px;
     overflow: hidden;
@@ -1638,7 +1638,7 @@ body {
     font-weight: 700;
     text-align: center;
     cursor: pointer;
-    border: 2px solid #a82aff;
+    border: .5px solid #a82aff;
     text-decoration: none;
     display: block;
     transition: transform 0.15s ease, box-shadow 0.15s ease;
@@ -1656,13 +1656,17 @@ body {
 }
 
 .pricing-card.secondary .pricing-cta {
-    background: #fff;
+    background: #f5f5f5;
     color: #000;
     border-color: #000;
+    box-shadow: -4px 4px 0px 0px #ccc;
 }
 
 .pricing-card.secondary .pricing-cta:hover {
-    background: #f5f5f5;
+    background: #f1f1f1;
+    border: none;
+    transform: translate(2px, 2px);
+    box-shadow: -2px 2px 0px 0px #ccc;
 }
 
 .pricing-footer {
@@ -2041,5 +2045,35 @@ body {
     .footer-inner {
         flex-direction: column;
         gap: 24px;
+    }
+
+    .jm-info {
+        width: 140px;
+    }
+
+    .jm-body {
+        padding: 0;
+    }
+
+    .jm-body::before {
+        left: calc(0px + 140px + 10.5px);
+    }
+
+    .jm-x-spacer {
+        width: calc(16px + 140px - 17px);
+        flex-shrink: 0;
+    }
+
+    .jm-flag-spacer {
+        width: calc(16px + 140px - 9px);
+        flex-shrink: 0;
+    }
+
+    .jm-course {
+        margin-right: 0px;
+    }
+
+    .section-base {
+        padding: 16px 8px;
     }
 }
