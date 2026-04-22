@@ -325,8 +325,8 @@ body {
     position: absolute;
     width: 119px;
     height: 146px;
-    left: -60px;
-    top: 0;
+    left: -697px;
+    top: -190px;
 }
 
 /* hero decor imgs use .decor-img */
@@ -464,7 +464,7 @@ body {
     width: 162px;
     height: 196px;
     left: -48px;
-    top: -34px;
+    top: -103px;
     z-index: 2;
 }
 
@@ -475,7 +475,7 @@ body {
     width: 198px;
     height: 116px;
     right: -120px;
-    bottom: -47px;
+    bottom: -71px;
     z-index: 2;
 }
 
